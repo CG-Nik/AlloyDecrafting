@@ -1,11 +1,9 @@
 ﻿using Alta.Blacksmithing;
 using Alta.Inventory;
-using Alta.Networking;
 using CustomRecipesAPI;
-using HarmonyLib;
+using Alta;
 using MelonLoader;
 using MelonLoader.Utils;
-using System.Reflection;
 using UnityEngine;
 
 [assembly: MelonInfo(typeof(AlloyDecrafting.Core), "AlloyDecrafting", "1.0.0", "CGNik", null)]
