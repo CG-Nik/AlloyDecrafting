@@ -3,8 +3,8 @@ using Alta.Inventory;
 using CustomRecipesAPI;
 using Alta;
 using MelonLoader;
-using MelonLoader.Utils;
 using UnityEngine;
+using System.Reflection;
 
 [assembly: MelonInfo(typeof(AlloyDecrafting.Core), "AlloyDecrafting", "1.0.0", "CGNik", null)]
 [assembly: MelonGame("Alta", "A Township Tale")]
@@ -22,7 +22,12 @@ namespace AlloyDecrafting
 
         private void SetUpRecipes()
         {
-            AssetBundle assetBundle = AssetBundle.LoadFromFile(Path.Combine(MelonEnvironment.ModsDirectory, "AlloyDecrafting/AssetBundles/!alloydecrafting"));
+            AssetBundle assetBundle;
+            using (System.IO.Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AlloyDecrafting.AssetBundles.!alloydecrafting"))
+            {
+                assetBundle = AssetBundle.LoadFromStream(stream);
+            }
+
             SmeltingRecipe smeltingRecipe_CarsiDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Carsi Decraft.asset");
             SmeltingRecipe smeltingRecipe_EvinonSteelDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Evinon Steel Decraft.asset");
             SmeltingRecipe smeltingRecipe_OrchiDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Orchi Decraft.asset");
