@@ -13,9 +13,6 @@
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
-	<ItemGroup>
-	  <None Remove="AssetBundles\!alloydecrafting" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<Reference Include="Accessibility">
@@ -674,10 +671,6 @@
 	<ItemGroup>
 		<Compile Include="Core.cs" />
 		<Content Include="Directory.Build.props" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="AssetBundles\!alloydecrafting" />
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">

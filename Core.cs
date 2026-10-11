@@ -4,7 +4,6 @@ using CustomRecipesAPI;
 using Alta;
 using MelonLoader;
 using UnityEngine;
-using System.Reflection;
 
 [assembly: MelonInfo(typeof(AlloyDecrafting.Core), "AlloyDecrafting", "1.0.0", "CGNik", null)]
 [assembly: MelonGame("Alta", "A Township Tale")]
@@ -22,18 +21,6 @@ namespace AlloyDecrafting
 
         private void SetUpRecipes()
         {
-            AssetBundle assetBundle;
-            using (System.IO.Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AlloyDecrafting.AssetBundles.!alloydecrafting"))
-            {
-                assetBundle = AssetBundle.LoadFromStream(stream);
-            }
-
-            SmeltingRecipe smeltingRecipe_CarsiDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Carsi Decraft.asset");
-            SmeltingRecipe smeltingRecipe_EvinonSteelDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Evinon Steel Decraft.asset");
-            SmeltingRecipe smeltingRecipe_OrchiDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Orchi Decraft.asset");
-            SmeltingRecipe smeltingRecipe_RedIronDecraft = assetBundle.LoadAsset<SmeltingRecipe>("Red Iron Decraft.asset");
-            SmeltingRecipe smeltingRecipe_WhiteGoldDecraft = assetBundle.LoadAsset<SmeltingRecipe>("White Gold Decraft.asset");
-
             SmelterUpgrades smelterUpgrades_gem1 = SmelterUpgrades.All.Where(upgrade => upgrade.Hash == 23872u).First();
             SmelterUpgrades smelterUpgrades_gem2 = SmelterUpgrades.All.Where(upgrade => upgrade.Hash == 28650u).First();
             SmelterUpgrades smelterUpgrades_gem3 = SmelterUpgrades.All.Where(upgrade => upgrade.Hash == 33428u).First();
@@ -67,77 +54,151 @@ namespace AlloyDecrafting
                 new Vector3(0, -0.6f, -0.6f)
             );
 
-            CustomRecipesAPI.Core.SetUpSmeltingRecipe(
-                smeltingRecipe_CarsiDecraft,
-                new Item[]
+            CustomRecipesAPI.Core.SetUpSmeltingRecipeThroughCode(
+                "Carsi Decraft",
+                18061,
+                7f,
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.CarsiIngot],
-                    crystalShardBlue
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.CarsiIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        crystalShardBlue,
+                        1
+                    ),
                 },
-                new Item[]
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.RedIronIngot],
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.SilverOre]
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.RedIronIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.SilverOre],
+                        4
+                    ),
                 },
                 smelterUpgrades_gem2,
                 true
             );
-            CustomRecipesAPI.Core.SetUpSmeltingRecipe(
-                smeltingRecipe_EvinonSteelDecraft,
-                new Item[]
+
+            CustomRecipesAPI.Core.SetUpSmeltingRecipeThroughCode(
+                "Evinon Steel Decraft",
+                18062,
+                10f,
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.EvinonSteelIngot],
-                    crystalShardBlue
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.EvinonSteelIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        crystalShardBlue,
+                        1
+                    ),
                 },
-                new Item[]
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.SilverIngot],
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.MythrilIngot]
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.SilverIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.MythrilIngot],
+                        2
+                    ),
                 },
                 smelterUpgrades_gem3,
                 true
             );
-            CustomRecipesAPI.Core.SetUpSmeltingRecipe(
-                smeltingRecipe_OrchiDecraft,
-                new Item[]
+
+            CustomRecipesAPI.Core.SetUpSmeltingRecipeThroughCode(
+                "Orchi Decraft",
+                18063,
+                8f,
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.OrchiIngot],
-                    crystalShardBlue
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.OrchiIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        crystalShardBlue,
+                        1
+                    ),
                 },
-                new Item[]
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.GoldOre],
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.MythrilOre]
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.GoldOre],
+                        3
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.MythrilOre],
+                        2
+                    ),
                 },
                 smelterUpgrades_gem3,
                 true
             );
-            CustomRecipesAPI.Core.SetUpSmeltingRecipe(
-                smeltingRecipe_RedIronDecraft,
-                new Item[]
+
+            CustomRecipesAPI.Core.SetUpSmeltingRecipeThroughCode(
+                "Red Iron Decraft",
+                18064,
+                7f,
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.RedIronIngot],
-                    crystalShardBlue
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.RedIronIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        crystalShardBlue,
+                        1
+                    ),
                 },
-                new Item[]
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.IronIngot],
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.CopperIngot]
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.IronIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.CopperIngot],
+                        1
+                    ),
                 },
                 smelterUpgrades_gem1,
                 true
             );
-            CustomRecipesAPI.Core.SetUpSmeltingRecipe(
-                smeltingRecipe_WhiteGoldDecraft,
-                new Item[]
+
+            CustomRecipesAPI.Core.SetUpSmeltingRecipeThroughCode(
+                "White Gold Decraft",
+                18065,
+                7f,
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.WhiteGoldIngot],
-                    crystalShardBlue
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.WhiteGoldIngot],
+                        1
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        crystalShardBlue,
+                        1
+                    ),
                 },
-                new Item[]
+                new ItemCount[]
                 {
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.SilverOre],
-                    CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.GoldOre]
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.SilverOre],
+                        3
+                    ),
+                    CustomRecipesAPI.Core.CreateItemCount(
+                        CustomRecipesAPI.Core.VanillaOreAndIngotItems[(int)CustomRecipesAPI.Core.VanillaOreAndIngotIndexers.GoldOre],
+                        2
+                    ),
                 },
                 smelterUpgrades_gem2,
                 true
